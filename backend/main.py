@@ -7,8 +7,8 @@ from typing import List
 
 import uvicorn
 
-from src.utils.config import API_HOST, API_PORT, API_DEBUG
-from src.utils.logging import setup_logging
+from backend.utils.config import API_DEBUG, API_HOST, API_PORT
+from backend.utils.logging import setup_logging
 
 
 def parse_args(args: List[str]) -> argparse.Namespace:

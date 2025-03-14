@@ -7,7 +7,7 @@ from typing import Dict, List, Optional, Union
 import httpx
 from pydantic import ValidationError
 
-from src.data.models import Driver, Race, Team
+from backend.data.models import Driver, Race, Team
 
 logger = logging.getLogger(__name__)
 

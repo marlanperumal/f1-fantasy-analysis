@@ -6,7 +6,7 @@ from typing import Dict, List, Tuple
 import numpy as np
 import polars as pl
 
-from src.data.models import Driver, Team
+from backend.data.models import Driver, Team
 
 logger = logging.getLogger(__name__)
 
