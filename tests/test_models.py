@@ -4,7 +4,7 @@ from datetime import datetime
 
 import pytest
 
-from src.data.models import Driver, FantasyTeam, Race, Team
+from backend.data.models import Driver, FantasyTeam, Race, Team
 
 
 def test_driver_model():

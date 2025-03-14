@@ -3,7 +3,7 @@
 import polars as pl
 import pytest
 
-from src.analysis.polars_analysis import (
+from backend.analysis.polars_analysis import (
     analyze_price_to_points_correlation,
     analyze_team_performance,
     create_driver_dataframe,
@@ -12,7 +12,7 @@ from src.analysis.polars_analysis import (
     optimize_team_selection_advanced,
     predict_future_points,
 )
-from src.data.models import Driver, Team
+from backend.data.models import Driver, Team
 
 
 @pytest.fixture
