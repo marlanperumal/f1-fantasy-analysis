@@ -1,0 +1,1 @@
+"""Analysis module for F1 Fantasy data.""" 
