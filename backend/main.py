@@ -56,7 +56,7 @@ def main() -> None:
     
     # Run the API server
     uvicorn.run(
-        "src.api.app:app",
+        "backend.api.app:app",
         host=args.host,
         port=args.port,
         reload=args.debug,
