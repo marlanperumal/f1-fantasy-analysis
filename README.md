@@ -1,6 +1,6 @@
 # F1 Fantasy Analysis
 
-A Python application for analyzing Formula 1 fantasy data and providing insights through a REST API.
+A comprehensive application for analyzing Formula 1 fantasy data, providing insights through a REST API and a modern web interface.
 
 This repo contains code and data to analyse the F1 Fantasy game on the [F1 website](https://fantasy.formula1.com/en/). The 
 game allows selection of a team consisting of 2 constructors and 5 drivers, who will score points at each F1 race through the 
@@ -27,34 +27,54 @@ season.
 - [] Simulate Previous Seasons
 - [] Setup Frontend
 
+## Project Structure
+
+```
+f1-fantasy-analysis/
+├── backend/                # Backend source code
+│   ├── api/                # API endpoints and server
+│   ├── analysis/           # Analysis algorithms
+│   ├── data/               # Data models and fetchers
+│   └── utils/              # Utility functions
+├── webapp/                 # Frontend web application
+│   ├── src/                # Frontend source code
+│   │   ├── app/            # Next.js app router pages
+│   │   │   ├── drivers/     # Drivers analysis page
+│   │   │   ├── teams/       # Teams analysis page
+│   │   │   ├── analysis/    # Advanced analysis tools
+│   │   │   └── simulator/   # Race simulator
+│   │   ├── components/     # React components
+│   │   └── lib/            # Frontend utilities
+│   └── public/             # Static assets
+├── tests/                  # Test files
+├── data/                   # Data storage (created at runtime)
+├── pyproject.toml          # Backend project configuration
+├── package.json            # Frontend project configuration
+└── README.md               # Project documentation
+```
+
 ## Features
 
+### Data Analysis
 - Fetch current F1 season data (races, drivers, teams)
 - Calculate value efficiency for drivers and teams
 - Analyze form trends
 - Recommend optimal team selections based on budget constraints
 - Advanced data analysis using Polars for high-performance processing
-- RESTful API for accessing all analysis features
 
-## Project Structure
-
-```
-f1-fantasy-analysis/
-├── src/                    # Source code
-│   ├── api/                # API endpoints and server
-│   ├── analysis/           # Analysis algorithms
-│   ├── data/               # Data models and fetchers
-│   └── utils/              # Utility functions
-├── tests/                  # Test files
-├── data/                   # Data storage (created at runtime)
-├── pyproject.toml          # Project configuration
-└── README.md               # Project documentation
-```
+### User Interface
+- Dashboard with key metrics and insights
+- Driver and team analysis with value metrics
+- Advanced analysis tools for optimizing team selection
+- Race simulator for predicting fantasy points
+- Interactive UI for building and testing fantasy teams
 
 ## Requirements
 
-- Python 3.13+
+- Python 3.13+ (for backend)
+- Node.js 18.17+ (for frontend)
 - uv (Python package manager)
+- pnpm 8.0+ (Node.js package manager)
 
 ## Installation
 
@@ -65,7 +85,7 @@ git clone https://github.com/yourusername/f1-fantasy-analysis.git
 cd f1-fantasy-analysis
 ```
 
-2. Create a virtual environment and install dependencies using uv:
+2. Set up the backend:
 
 ```bash
 uv venv
@@ -74,58 +94,58 @@ uv add --dev hatchling
 uv add fastapi uvicorn polars numpy matplotlib seaborn requests python-dotenv pydantic httpx pytest
 ```
 
-## Configuration
+3. Set up the frontend:
 
-The application can be configured using environment variables or a `.env` file in the project root:
+```bash
+pnpm install
+```
+
+4. Configure environment variables:
+
+Create a `.env.local` file in the root directory with:
 
 ```
-# API configuration
-API_HOST=0.0.0.0
-API_PORT=8000
-API_DEBUG=False
-
-# External API configuration
-ERGAST_API_URL=https://ergast.com/api/f1
-
-# Fantasy settings
-DEFAULT_BUDGET=100.0
-MAX_DRIVERS=5
-
-# Cache settings
-CACHE_ENABLED=True
-CACHE_TTL=3600
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
 ## Usage
 
-### Running the API Server
+### Running the Application
+
+Start the backend API server:
 
 ```bash
-uv run src/main.py
+uv run backend/main.py
 ```
 
-Or with custom parameters:
+Start the frontend development server:
 
 ```bash
-uv run src/main.py --host 127.0.0.1 --port 8080 --debug --log-level DEBUG
+pnpm dev
 ```
 
-### API Endpoints
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-#### Basic Endpoints
+### Building for Production
+
+Build the frontend for production:
+
+```bash
+pnpm build
+pnpm start
+```
+
+## API Endpoints
+
 - `GET /` - API information
 - `GET /health` - Health check
 - `GET /api/v1/races` - Get current season races
 - `GET /api/v1/drivers` - Get drivers with fantasy data
 - `GET /api/v1/teams` - Get teams with fantasy data
-
-#### Analysis Endpoints
 - `GET /api/v1/analysis/driver-value` - Get driver value analysis
 - `GET /api/v1/analysis/team-value` - Get team value analysis
 - `GET /api/v1/analysis/form-trends` - Get driver form trends
 - `GET /api/v1/analysis/optimal-team` - Get optimal team selection
-
-#### Advanced Analysis Endpoints (Polars-based)
 - `GET /api/v1/analysis/team-performance` - Get team performance metrics
 - `GET /api/v1/analysis/price-points-correlation` - Get correlation between price and points
 - `GET /api/v1/analysis/undervalued-drivers` - Find undervalued drivers
@@ -149,3 +169,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [Ergast F1 API](https://ergast.com/mrd/) for providing F1 data
 - [FastAPI](https://fastapi.tiangolo.com/) for the API framework
 - [Polars](https://pola.rs/) for high-performance data processing
+- [Next.js](https://nextjs.org/) for the frontend framework
+- [TanStack Query](https://tanstack.com/query) for data fetching
+- [Tailwind CSS](https://tailwindcss.com/) for styling

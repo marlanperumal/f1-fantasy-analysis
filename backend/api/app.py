@@ -3,7 +3,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.api.routes import router as api_router
+from backend.api.routes import router as api_router
 
 app = FastAPI(
     title="F1 Fantasy Analysis API",

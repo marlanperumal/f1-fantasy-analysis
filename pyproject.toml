@@ -62,8 +62,8 @@ testpaths = ["tests"]
 python_files = "test_*.py"
 
 [tool.hatch.build.targets.sdist]
-include = ["src"]
+include = ["backend"]
 
 [tool.hatch.build.targets.wheel]
-include = ["src"]
+include = ["backend"]
 

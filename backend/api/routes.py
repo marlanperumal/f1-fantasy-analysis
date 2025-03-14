@@ -4,13 +4,13 @@ from typing import Dict, List
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 
-from src.analysis.performance import (
+from backend.analysis.performance import (
     analyze_form_trends,
     optimal_team_selection,
     rank_drivers_by_value,
     rank_teams_by_value,
 )
-from src.analysis.polars_analysis import (
+from backend.analysis.polars_analysis import (
     analyze_price_to_points_correlation,
     analyze_team_performance,
     create_driver_dataframe,
@@ -19,9 +19,9 @@ from src.analysis.polars_analysis import (
     optimize_team_selection_advanced,
     predict_future_points,
 )
-from src.data.fetcher import F1DataFetcher
-from src.data.models import Driver, Race, Team
-from src.utils.config import DEFAULT_BUDGET, MAX_DRIVERS
+from backend.data.fetcher import F1DataFetcher
+from backend.data.models import Driver, Race, Team
+from backend.utils.config import DEFAULT_BUDGET, MAX_DRIVERS
 
 router = APIRouter(prefix="/api/v1", tags=["F1 Fantasy"])
 

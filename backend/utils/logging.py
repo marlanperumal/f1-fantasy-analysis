@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-from src.utils.config import BASE_DIR
+from backend.utils.config import BASE_DIR
 
 
 def setup_logging(
