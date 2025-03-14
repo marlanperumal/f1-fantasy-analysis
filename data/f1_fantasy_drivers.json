@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Max Verstappen",
+    "team": "Red Bull Racing",
+    "price": 30.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Lewis Hamilton",
+    "team": "Ferrari",
+    "price": 28.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Charles Leclerc",
+    "team": "Ferrari",
+    "price": 25.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Lando Norris",
+    "team": "McLaren",
+    "price": 24.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Oscar Piastri",
+    "team": "McLaren",
+    "price": 21.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "George Russell",
+    "team": "Mercedes",
+    "price": 23.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Carlos Sainz",
+    "team": "Williams",
+    "price": 20.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Sergio Perez",
+    "team": "Red Bull Racing",
+    "price": 19.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Fernando Alonso",
+    "team": "Aston Martin",
+    "price": 17.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Lance Stroll",
+    "team": "Aston Martin",
+    "price": 12.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Pierre Gasly",
+    "team": "Alpine",
+    "price": 11.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Esteban Ocon",
+    "team": "Alpine",
+    "price": 11.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Alexander Albon",
+    "team": "Williams",
+    "price": 10.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Yuki Tsunoda",
+    "team": "RB",
+    "price": 9.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Daniel Ricciardo",
+    "team": "RB",
+    "price": 8.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Valtteri Bottas",
+    "team": "Sauber",
+    "price": 8.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Zhou Guanyu",
+    "team": "Sauber",
+    "price": 7.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Kevin Magnussen",
+    "team": "Haas",
+    "price": 7.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Nico Hulkenberg",
+    "team": "Haas",
+    "price": 6.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Oliver Bearman",
+    "team": "Haas",
+    "price": 5.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  }
+]

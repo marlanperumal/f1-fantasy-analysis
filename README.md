@@ -19,7 +19,7 @@ season.
 
 - [x] Setup Scoring Rules
 - [ ] Develop driver position model
-- [ ] Setup Driver Data
+- [x] Setup Driver Data
 - [ ] Allow for Team selection
 - [ ] Simulate Race
 - [ ] Optimise team

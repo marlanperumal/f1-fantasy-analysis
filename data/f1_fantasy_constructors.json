@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Red Bull Racing",
+    "price": 26.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Ferrari",
+    "price": 25.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "McLaren",
+    "price": 24.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Mercedes",
+    "price": 23.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Aston Martin",
+    "price": 16.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Williams",
+    "price": 14.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Alpine",
+    "price": 12.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "RB",
+    "price": 10.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Haas",
+    "price": 8.0,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  },
+  {
+    "name": "Sauber",
+    "price": 7.5,
+    "scrape_date": "2025-03-14T18:08:18.709602"
+  }
+]
