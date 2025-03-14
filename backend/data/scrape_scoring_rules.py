@@ -9,6 +9,14 @@ from bs4 import BeautifulSoup
 import json
 import os
 import re
+import pathlib
+
+# Get the project root directory
+ROOT_DIR = pathlib.Path(__file__).parent.parent.parent
+
+# Ensure the data directory exists
+DATA_DIR = os.path.join(ROOT_DIR, 'data')
+os.makedirs(DATA_DIR, exist_ok=True)
 
 # URL of the F1 Fantasy game rules
 URL = "https://fantasy.formula1.com/en/game-rules"
@@ -107,14 +115,16 @@ def scrape_scoring_rules():
             scoring_rules = "\n\n".join(scoring_rules)
         
         # Save the raw HTML for inspection
-        with open("data/f1_fantasy_rules_full.html", "w", encoding="utf-8") as f:
+        html_file_path = os.path.join(DATA_DIR, 'f1_fantasy_rules_full.html')
+        with open(html_file_path, "w", encoding="utf-8") as f:
             f.write(response.text)
         
         # Save the scoring rules to a text file
-        with open("data/f1_fantasy_scoring_rules.txt", "w", encoding="utf-8") as f:
+        rules_file_path = os.path.join(DATA_DIR, 'f1_fantasy_scoring_rules.txt')
+        with open(rules_file_path, "w", encoding="utf-8") as f:
             f.write(scoring_rules)
         
-        print(f"Scoring rules saved to data/f1_fantasy_scoring_rules.txt")
+        print(f"Scoring rules saved to {rules_file_path}")
         return scoring_rules
     
     except Exception as e:
@@ -122,10 +132,11 @@ def scrape_scoring_rules():
         
         # Use predefined rules as fallback
         print("Using predefined scoring rules as fallback.")
-        with open("data/f1_fantasy_scoring_rules.txt", "w", encoding="utf-8") as f:
+        rules_file_path = os.path.join(DATA_DIR, 'f1_fantasy_scoring_rules.txt')
+        with open(rules_file_path, "w", encoding="utf-8") as f:
             f.write(F1_FANTASY_SCORING_RULES)
         
-        print(f"Fallback scoring rules saved to data/f1_fantasy_scoring_rules.txt")
+        print(f"Fallback scoring rules saved to {rules_file_path}")
         return F1_FANTASY_SCORING_RULES
 
 if __name__ == "__main__":

@@ -8,8 +8,16 @@ from bs4 import BeautifulSoup
 import json
 import os
 import re
+import pathlib
 from datetime import datetime
 import time
+
+# Get the project root directory
+ROOT_DIR = pathlib.Path(__file__).parent.parent.parent
+
+# Ensure the data directory exists
+DATA_DIR = os.path.join(ROOT_DIR, 'data')
+os.makedirs(DATA_DIR, exist_ok=True)
 
 # URLs for the F1 Fantasy statistics pages
 DRIVER_URL = "https://fantasy.formula1.com/en/statistics/details?tab=driver"
@@ -100,7 +108,8 @@ def scrape_driver_prices():
                         })
         
         # Save the raw HTML for inspection
-        with open("data/f1_fantasy_drivers_page.html", "w", encoding="utf-8") as f:
+        drivers_html_path = os.path.join(DATA_DIR, 'f1_fantasy_drivers_page.html')
+        with open(drivers_html_path, "w", encoding="utf-8") as f:
             f.write(response.text)
         
         # Process the driver data
@@ -169,7 +178,8 @@ def scrape_constructor_prices():
                         })
         
         # Save the raw HTML for inspection
-        with open("data/f1_fantasy_constructors_page.html", "w", encoding="utf-8") as f:
+        constructors_html_path = os.path.join(DATA_DIR, 'f1_fantasy_constructors_page.html')
+        with open(constructors_html_path, "w", encoding="utf-8") as f:
             f.write(response.text)
         
         # Process the constructor data
@@ -193,15 +203,17 @@ def save_data_to_json(drivers, constructors):
     """Save the scraped data to JSON files."""
     # Save driver data
     if drivers:
-        with open("data/f1_fantasy_drivers.json", "w", encoding="utf-8") as f:
+        drivers_json_path = os.path.join(DATA_DIR, 'f1_fantasy_drivers.json')
+        with open(drivers_json_path, "w", encoding="utf-8") as f:
             json.dump(drivers, f, indent=2)
-        print("Driver data saved to data/f1_fantasy_drivers.json")
+        print(f"Driver data saved to {drivers_json_path}")
     
     # Save constructor data
     if constructors:
-        with open("data/f1_fantasy_constructors.json", "w", encoding="utf-8") as f:
+        constructors_json_path = os.path.join(DATA_DIR, 'f1_fantasy_constructors.json')
+        with open(constructors_json_path, "w", encoding="utf-8") as f:
             json.dump(constructors, f, indent=2)
-        print("Constructor data saved to data/f1_fantasy_constructors.json")
+        print(f"Constructor data saved to {constructors_json_path}")
 
 if __name__ == "__main__":
     scrape_prices() 

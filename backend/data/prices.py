@@ -7,17 +7,23 @@ import sqlite3
 import os
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple
+import pathlib
 
 class Prices:
     """Class for accessing F1 Fantasy driver and constructor prices."""
     
-    def __init__(self, db_path: str = 'data/f1_fantasy.db'):
+    def __init__(self, db_path: str = None):
         """
         Initialize the Prices class.
         
         Args:
             db_path: Path to the SQLite database file
         """
+        if db_path is None:
+            # Default path is in the data directory at the project root
+            root_dir = pathlib.Path(__file__).parent.parent.parent
+            db_path = os.path.join(root_dir, 'data', 'f1_fantasy.db')
+        
         self.db_path = db_path
         
         # Ensure the database exists

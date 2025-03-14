@@ -6,12 +6,17 @@ Script to create a SQLite database for F1 Fantasy scoring rules.
 import sqlite3
 import os
 import re
+import pathlib
+
+# Get the project root directory
+ROOT_DIR = pathlib.Path(__file__).parent.parent.parent
 
 # Ensure the data directory exists
-os.makedirs('data', exist_ok=True)
+DATA_DIR = os.path.join(ROOT_DIR, 'data')
+os.makedirs(DATA_DIR, exist_ok=True)
 
 # Database file path
-DB_FILE = 'data/f1_fantasy.db'
+DB_FILE = os.path.join(DATA_DIR, 'f1_fantasy.db')
 
 def create_database():
     """Create the SQLite database and tables for F1 Fantasy scoring rules."""
@@ -223,7 +228,8 @@ def parse_scoring_rules_file():
     """Parse the scoring rules from the text file and populate the database."""
     try:
         # Read the scoring rules file
-        with open('data/f1_fantasy_scoring_rules.txt', 'r', encoding='utf-8') as f:
+        rules_file_path = os.path.join(DATA_DIR, 'f1_fantasy_scoring_rules.txt')
+        with open(rules_file_path, 'r', encoding='utf-8') as f:
             rules_text = f.read()
         
         # Create and populate the database

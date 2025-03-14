@@ -6,13 +6,18 @@ Script to create database tables for F1 Fantasy driver and constructor prices.
 import sqlite3
 import os
 import json
+import pathlib
 from datetime import datetime
 
+# Get the project root directory
+ROOT_DIR = pathlib.Path(__file__).parent.parent.parent
+
 # Ensure the data directory exists
-os.makedirs('data', exist_ok=True)
+DATA_DIR = os.path.join(ROOT_DIR, 'data')
+os.makedirs(DATA_DIR, exist_ok=True)
 
 # Database file path
-DB_FILE = 'data/f1_fantasy.db'
+DB_FILE = os.path.join(DATA_DIR, 'f1_fantasy.db')
 
 def create_database():
     """Create the SQLite database and tables for F1 Fantasy prices."""
@@ -93,10 +98,13 @@ def populate_database():
     
     try:
         # Read the JSON files
-        with open("data/f1_fantasy_drivers.json", "r", encoding="utf-8") as f:
+        drivers_json_path = os.path.join(DATA_DIR, 'f1_fantasy_drivers.json')
+        constructors_json_path = os.path.join(DATA_DIR, 'f1_fantasy_constructors.json')
+        
+        with open(drivers_json_path, "r", encoding="utf-8") as f:
             drivers_data = json.load(f)
         
-        with open("data/f1_fantasy_constructors.json", "r", encoding="utf-8") as f:
+        with open(constructors_json_path, "r", encoding="utf-8") as f:
             constructors_data = json.load(f)
         
         # Connect to the database

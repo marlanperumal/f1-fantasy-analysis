@@ -5,7 +5,15 @@ Script to generate sample driver and constructor prices data for F1 Fantasy.
 
 import json
 import os
+import pathlib
 from datetime import datetime
+
+# Get the project root directory
+ROOT_DIR = pathlib.Path(__file__).parent.parent.parent
+
+# Ensure the data directory exists
+DATA_DIR = os.path.join(ROOT_DIR, 'data')
+os.makedirs(DATA_DIR, exist_ok=True)
 
 # Sample driver data for the 2025 F1 season
 SAMPLE_DRIVERS = [
@@ -76,18 +84,17 @@ def generate_sample_data():
 
 def save_data_to_json(drivers, constructors):
     """Save the sample data to JSON files."""
-    # Ensure the data directory exists
-    os.makedirs('data', exist_ok=True)
-    
     # Save driver data
-    with open("data/f1_fantasy_drivers.json", "w", encoding="utf-8") as f:
+    drivers_json_path = os.path.join(DATA_DIR, 'f1_fantasy_drivers.json')
+    with open(drivers_json_path, "w", encoding="utf-8") as f:
         json.dump(drivers, f, indent=2)
-    print("Sample driver data saved to data/f1_fantasy_drivers.json")
+    print(f"Sample driver data saved to {drivers_json_path}")
     
     # Save constructor data
-    with open("data/f1_fantasy_constructors.json", "w", encoding="utf-8") as f:
+    constructors_json_path = os.path.join(DATA_DIR, 'f1_fantasy_constructors.json')
+    with open(constructors_json_path, "w", encoding="utf-8") as f:
         json.dump(constructors, f, indent=2)
-    print("Sample constructor data saved to data/f1_fantasy_constructors.json")
+    print(f"Sample constructor data saved to {constructors_json_path}")
 
 if __name__ == "__main__":
     generate_sample_data() 
