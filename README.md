@@ -17,15 +17,15 @@ season.
 
 ## Analysis Plan
 
-- [] Setup Scoring Rules
-- [] Develop driver position model
-- [] Setup Driver Data
-- [] Allow for Team selection
-- [] Simulate Race
-- [] Optimise team
-- [] Get historic data
-- [] Simulate Previous Seasons
-- [] Setup Frontend
+- [x] Setup Scoring Rules
+- [ ] Develop driver position model
+- [x] Setup Driver Data
+- [ ] Allow for Team selection
+- [ ] Simulate Race
+- [ ] Optimise team
+- [ ] Get historic data
+- [ ] Simulate Previous Seasons
+- [ ] Setup Frontend
 
 ## Project Structure
 

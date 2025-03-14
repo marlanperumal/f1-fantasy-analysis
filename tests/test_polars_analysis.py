@@ -3,7 +3,7 @@
 import polars as pl
 import pytest
 
-from src.analysis.polars_analysis import (
+from backend.analysis.polars_analysis import (
     analyze_price_to_points_correlation,
     analyze_team_performance,
     create_driver_dataframe,
@@ -12,7 +12,7 @@ from src.analysis.polars_analysis import (
     optimize_team_selection_advanced,
     predict_future_points,
 )
-from src.data.models import Driver, Team
+from backend.data.models import Driver, Team
 
 
 @pytest.fixture
@@ -188,12 +188,14 @@ def test_optimize_team_selection_advanced(sample_drivers, sample_teams):
     assert selected_drivers_df.shape[0] <= 3  # At most 3 drivers
     
     # Check team constraint
-    team_counts = selected_drivers_df["team"].value_counts().to_dict()
-    for count in team_counts.values():
-        assert count <= 1  # At most 1 driver per team
+    if not selected_drivers_df.is_empty():
+        # Get the count of drivers per team
+        team_counts_df = selected_drivers_df.group_by("team").agg(pl.count("id").alias("count"))
+        # Verify no team has more than max_per_team drivers
+        assert team_counts_df["count"].max() <= 1  # At most 1 driver per team
     
     # Check budget constraint
-    total_cost = sum(selected_drivers_df["price"].to_list())
+    total_cost = sum(selected_drivers_df["price"].to_list()) if not selected_drivers_df.is_empty() else 0.0
     if selected_team:
         total_cost += selected_team["price"]
     assert total_cost + remaining_budget == pytest.approx(100.0) 
